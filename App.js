@@ -143,7 +143,7 @@ function getBook(id) {
 
 const book = getBook(5);
 // Destructuring Object
-const { title, author, genres } = book;
+const { title, author, genres, publicationDate } = book;
 
 // console.log(title, author, genres);
 
@@ -166,7 +166,7 @@ const { title, author, genres } = book;
 
 // This will add in beginning
 const newGenres = ["epic fantacy", "My Fantacy", ...genres];
-newGenres;
+// newGenres;
 
 // With Objects
 const updatedBook = {
@@ -175,4 +175,11 @@ const updatedBook = {
   moviePublicationDate: "2000-12-19",
   pages: 1220,
 };
-updatedBook;
+// updatedBook;
+
+// Template Literals
+
+const summary = `${title} was published on ${
+  publicationDate.split("-")[0]
+}, written by ${author}`;
+summary;
