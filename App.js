@@ -145,9 +145,34 @@ const book = getBook(5);
 // Destructuring Object
 const { title, author, genres } = book;
 
-console.log(title, author, genres);
+// console.log(title, author, genres);
 
 // Destructuring Array
-const [primary, secondary] = genres;
+// const [primary, secondary] = genres;
 
-console.log(primary, secondary);
+// const [primary, secondary] = genres;
+// console.log(primary, secondary);
+
+// Rest Operator
+// const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+
+// console.log(primaryGenre, secondaryGenre, otherGenres);
+
+// Spread Operator
+// With Array
+
+// This will add in end
+// const newGenres = [...genres, "epic fantacy", "My Fantacy"];
+
+// This will add in beginning
+const newGenres = ["epic fantacy", "My Fantacy", ...genres];
+newGenres;
+
+// With Objects
+const updatedBook = {
+  ...book,
+  //   Adding New Property in existing Object
+  moviePublicationDate: "2000-12-19",
+  pages: 1220,
+};
+updatedBook;
