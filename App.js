@@ -113,7 +113,7 @@ const data = [
     author: "George R. R. Martin",
     genres: ["fantasy", "high-fantasy", "novel", "fantasy fiction"],
     hasMovieAdaptation: true,
-    pages: 835,
+    pages: 1001,
     translations: {
       korean: "왕좌의 게임",
       polish: "Gra o tron",
@@ -141,9 +141,10 @@ function getBook(id) {
   });
 }
 
-const book = getBook(5);
+const book = getBook(2);
 // Destructuring Object
-const { title, author, genres, publicationDate } = book;
+const { title, author, genres, publicationDate, pages, hasMovieAdaptation } =
+  book;
 
 // console.log(title, author, genres);
 
@@ -181,5 +182,13 @@ const updatedBook = {
 
 const summary = `${title} was published on ${
   publicationDate.split("-")[0]
-}, written by ${author}`;
+}, written by ${author} The Book has ${
+  hasMovieAdaptation ? "" : "not"
+} been adopted.`;
 summary;
+
+// Ternaries Operators
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000.";
+
+console.log(pagesRange);
