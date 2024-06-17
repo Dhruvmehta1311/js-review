@@ -180,9 +180,12 @@ const updatedBook = {
 
 // Template Literals
 
-const summary = `${title} was published on ${
-  publicationDate.split("-")[0]
-}, written by ${author} The Book has ${
+const getYear = (str, a, b) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title} was published on ${getYear(
+  publicationDate
+)}, written by ${author} The Book has ${
   hasMovieAdaptation ? "" : "not"
 } been adopted.`;
 summary;
@@ -191,4 +194,12 @@ summary;
 
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000.";
 
-console.log(pagesRange);
+// console.log(pagesRange);
+
+// Arrow Functions
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+// console.log(getYear(publicationDate));
