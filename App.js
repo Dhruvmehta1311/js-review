@@ -135,12 +135,16 @@ const data = [
   },
 ];
 
+function getBooks() {
+  return data;
+}
+
 function getBook(id) {
   return data.find((info) => {
     return info.id === id;
   });
 }
-
+const books = getBooks();
 const book = getBook(2);
 // Destructuring Object
 const { title, author, genres, publicationDate, pages, hasMovieAdaptation } =
@@ -203,3 +207,25 @@ const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000.";
 // }
 
 // console.log(getYear(publicationDate));
+
+// Short Circuiting
+// And Operator
+console.log(true && "Anything");
+console.log(false && "Anything");
+console.log(hasMovieAdaptation && "This book has a movie");
+
+console.log("Dhruv" && "Random Value");
+console.log(0 && "This is a falsy value");
+
+// OR Operator
+console.log(true || "Anything");
+console.log(false || "Anything");
+
+console.log(book.translations.spanish);
+
+const spanishTranslation = book.translations.spanish || "Not Available";
+spanishTranslation;
+
+const userReviewRating = book.reviews.librarything.reviewsCount;
+console.log(userReviewRating || "Not Available");
+console.log(userReviewRating ?? "Not Available");
