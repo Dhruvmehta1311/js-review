@@ -140,103 +140,18 @@ function getBooks() {
 }
 
 function getBook(id) {
-  return data.find((info) => {
-    return info.id === id;
+  return data.find((d) => {
+    return d.id === id;
   });
 }
+
 const books = getBooks();
-const book = getBook(2);
-// Destructuring Object
-const { title, author, genres, publicationDate, pages, hasMovieAdaptation } =
-  book;
-
-// console.log(title, author, genres);
-
-// Destructuring Array
-// const [primary, secondary] = genres;
-
-// const [primary, secondary] = genres;
-// console.log(primary, secondary);
-
-// Rest Operator
-// const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
-
-// console.log(primaryGenre, secondaryGenre, otherGenres);
-
-// Spread Operator
-// With Array
-
-// This will add in end
-// const newGenres = [...genres, "epic fantacy", "My Fantacy"];
-
-// This will add in beginning
-const newGenres = ["epic fantacy", "My Fantacy", ...genres];
-// newGenres;
-
-// With Objects
-const updatedBook = {
-  ...book,
-  //   Adding New Property in existing Object
-  moviePublicationDate: "2000-12-19",
-  pages: 1220,
-};
-// updatedBook;
-
-// Template Literals
-
-const getYear = (str, a, b) => str.split("-")[0];
-console.log(getYear(publicationDate));
-
-const summary = `${title} was published on ${getYear(
-  publicationDate
-)}, written by ${author} The Book has ${
-  hasMovieAdaptation ? "" : "not"
-} been adopted.`;
-summary;
-
-// Ternaries Operators
-
-const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000.";
-
-// console.log(pagesRange);
-
-// Arrow Functions
-
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
-
-// console.log(getYear(publicationDate));
-
-// Short Circuiting
-// And Operator
-console.log(true && "Anything");
-console.log(false && "Anything");
-console.log(hasMovieAdaptation && "This book has a movie");
-
-console.log("Dhruv" && "Random Value");
-console.log(0 && "This is a falsy value");
-
-// OR Operator
-console.log(true || "Anything");
-console.log(false || "Anything");
-
-console.log(book.translations.spanish);
-
-const spanishTranslation = book.translations.spanish || "Not Available";
-spanishTranslation;
-
-const userReviewRating = book.reviews.librarything.reviewsCount;
-console.log(userReviewRating || "Not Available");
-console.log(userReviewRating ?? "Not Available");
-
-//  Optional Chaining
+const book = getBook(3);
 
 function getTotalReviewCount(book) {
-  const goodread = book.reviews.goodreads?.reviewsCount ?? 0;
+  const goodreads = book.reviews.goodreads.reviewsCount;
   const librarything = book.reviews.librarything?.reviewsCount ?? 0;
-  return goodread + librarything;
+  return goodreads + librarything;
 }
 
-const totalReviews = getTotalReviewCount(book);
-console.log(totalReviews); // Example usage
+console.log(getTotalReviewCount(book));
